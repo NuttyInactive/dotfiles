@@ -164,10 +164,10 @@ configure_zsh() {
 
 	# store the path to the dotfiles in .zshrc in order
 	# to source the other *.zsh files throughout the repo
-	zsh_dotfiles="export DOTFILES=$DOTFILES_ROOT"
-	if sed "3s/.*/$zsh_dotfiles" zsh/zshrc.symlink
+	zsh_dotfiles=$(echo $zsh_dotfiles | sed -e 's/[\/&]/\\&/g')
+	if sed -i "3s/.*/$zsh_dotfiles/" zsh/zshrc.symlink
 	then
-		success ".zshrc configured to have a pointer to the root of this repo"
+		success ".zshrc has successfully been configured"
 	else
 		fail "Failed to configure .zshrc"
 	fi
