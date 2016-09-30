@@ -37,8 +37,9 @@ link_file() {
 			then
 				skip=true;
 			else
-				user "$dst ($(basename "$src")) already exists. What do you want to do?\n \
-				         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all? "
+				prompt="[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all? "
+				user "$dst ($(basename "$src")) already exists.\n\t$prompt"
+
 				read -n 1 action
 
 				case "$action" in
@@ -98,20 +99,47 @@ install_dotfiles() {
 		dst="$HOME/.$(basename "${src%.*}")"
 		link_file "$src" "$dst"
 	done
+
+	echo ''
 }
 
 install_vundle() {
+	info "Installing Vundle"
+
 	if [ ! -d ~/.vim/bundle/ ]
 	then
-		info "Installing Vundle"
 		if git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null 2>&1
 		then
 			success "Vundle has been installed to ~/.vim/bundle/Vundle.vim"
 		else
 			fail "Vundle has failed to install"
 		fi
+	else
+		success "Vundle has already been installed"
 	fi
+
+	echo ''
 }
+
+install_vim_plugins() {
+	info "Installing Vim plugins"
+
+	if vim +PluginInstall +qall > /dev/null 2>&1
+	then
+		success "Vim plugins have been installed"
+	else
+		fail "Vim plugins have failed to install"
+	fi
+
+	echo ''
+}
+
+echo -e ''
+echo -e "\033[1;34m  NuttyNeko's dotfiles  \033[0m"
+echo -e "\033[0;34m  https://github.com/NuttyNeko/dotfiles  \033[0m"
+echo -e ''
 
 install_dotfiles
 install_vundle
+install_vim_plugins
+
