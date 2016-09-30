@@ -18,7 +18,7 @@ success() {
 }
 
 fail() {
-	printf "\r\033[2K  [\033[0;31m✗\033[0m] $1\n"
+	printf "\r\033[2K  [ \033[0;31m✗\033[0m ] $1\n"
 	echo ''
 	exit
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/config"
+cd "$(dirname "$0")"
 CONFIG_ROOT=$(pwd -P)
 
 info() {
@@ -16,7 +16,7 @@ success() {
 }
 
 fail() {
-	printf "\r\033[2K  [\033[0;31m✗\033[0m] $1\n"
+	printf "\r\033[2K  [ \033[0;31m✗\033[0m ] $1\n"
 	echo ''
 	exit
 }
@@ -40,3 +40,6 @@ install_bspwm() {
 
 	echo ''
 }
+
+install_bspwm
+
