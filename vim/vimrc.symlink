@@ -1,0 +1,74 @@
+"   -----------------------------------
+"   0.  GO AWAY VI, BE IMPROVED
+"   -----------------------------------
+
+set nocompatible
+imap jj <Esc>
+
+"   -----------------------------------
+"   1.  VUNDLE PLUGINS
+"   -----------------------------------
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'tpope/vim-sleuth'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Yggdroot/indentLine'
+
+call vundle#end()
+filetype plugin indent on
+
+"   -----------------------------------
+"   2.  AIRLINE & THEME CONFIGURATION
+"   -----------------------------------
+
+    " Airline has integration support with tmuxline so the airline theme
+    " specified here will also carry over to tmux.
+
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+set laststatus=2
+
+syntax enable
+set background=dark
+set number
+set t_Co=256
+
+"   -----------------------------------
+"   3.  WHITESPACE MANAGEMENT
+"   -----------------------------------
+
+autocmd BufWritePre * StripWhitespace  " strip trailing whitespace on save
+
+set tabstop=4                          " tabs have a width of four
+set shiftwidth=4                       " auto-indent width
+set noexpandtab                        " tabs FTW!
+
+    " Tabs for semantic indentation,
+    " Spaces for presentational indentation,
+    " But I will conform to the codebase.
+
+let g:indentLine_char = '|'            " show indentation
+set list lcs=tab:\|\                   " highlight tabs
+
+autocmd FileType make set noexpandtab  " don't expand tabs in Makefiles
+
+"   -----------------------------------
+"   4.  COPY & PASTE BETWEEN VIMs
+"   -----------------------------------
+
+    " Copy and paste between vim instances via shared text file buffer.
+    " Source: http://stackoverflow.com/a/11052783
+
+vmap <C-c> :w! ~/.vimbuffer<CR>
+nmap <C-c> :.w! ~/.vimbuffer<CR>
+map <C-p> :r ~/.vimbuffer<CR>

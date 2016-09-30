@@ -100,4 +100,18 @@ install_dotfiles() {
 	done
 }
 
+install_vundle() {
+	if [ ! -d ~/.vim/bundle/ ]
+	then
+		info "Installing Vundle"
+		if git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null 2>&1
+		then
+			success "Vundle has been installed to ~/.vim/bundle/Vundle.vim"
+		else
+			fail "Vundle has failed to install"
+		fi
+	fi
+}
+
 install_dotfiles
+install_vundle
