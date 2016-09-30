@@ -134,6 +134,47 @@ install_vim_plugins() {
 	echo ''
 }
 
+install_zsh() {
+	info "Installing Oh My Zsh"
+
+	if [[ $SHELL == *"zsh"* ]]
+	then
+		success "zsh has been detected"
+	else
+		fail "zsh is not the default shell"
+	fi
+
+	if [ ! -d ~/.oh-my-zsh/ ]
+	then
+		if sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" > /dev/null 2>&1
+		then
+			success "Oh My Zsh has been installed"
+		else
+			fail "Oh My Zsh has failed to install"
+		fi
+	else
+		success "Oh My Zsh has already been installed"
+	fi
+
+	echo ''
+}
+
+configure_zsh() {
+	info "Configuring zsh"
+
+	# store the path to the dotfiles in .zshrc in order
+	# to source the other *.zsh files throughout the repo
+	zsh_dotfiles="export DOTFILES=$DOTFILES_ROOT"
+	if sed "3s/.*/$zsh_dotfiles" zsh/zshrc.symlink
+	then
+		success ".zshrc configured to have a pointer to the root of this repo"
+	else
+		fail "Failed to configure .zshrc"
+	fi
+
+	echo ''
+}
+
 echo -e ''
 echo -e "\033[1;34m  NuttyNeko's dotfiles  \033[0m"
 echo -e "\033[0;34m  https://github.com/NuttyNeko/dotfiles  \033[0m"
@@ -142,4 +183,6 @@ echo -e ''
 install_dotfiles
 install_vundle
 install_vim_plugins
+install_zsh
 
+configure_zsh
