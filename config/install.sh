@@ -31,7 +31,7 @@ install_dotfiles() {
 	then
 		ls | grep -v 'zsh' | grep -v 'sh' | while read -r src
 		do
-			cp -rs $(pwd)/$src $XDG_CONFIG_HOME
+			cp -frs $(pwd)/$src $XDG_CONFIG_HOME
 			success "$(pwd)/$src → $XDG_CONFIG_HOME/$src"
 		done
 	else
