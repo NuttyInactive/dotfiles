@@ -166,7 +166,7 @@ configure_zsh() {
 	# to source the other *.zsh files throughout the repo
 	zsh_dotfiles=$DOTFILES_ROOT/zsh
 	cp $zsh_dotfiles/zshrc.example $zsh_dotfiles/zshrc.symlink
-	zsh_dotfiles=$(echo $DOTFILES_ROOT/zsh | sed -e 's/[\/&]/\\&/g')
+	zsh_dotfiles=$(echo "export DOTFILES=$DOTFILES_ROOT" | sed -e 's/[\/&]/\\&/g')
 
 	if sed -i "3s/.*/$zsh_dotfiles/" zsh/zshrc.symlink
 	then
