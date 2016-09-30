@@ -15,7 +15,7 @@ do
 done
 
 # load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh:#*/aliases.zsh}
 do
 	source $file
 done
@@ -26,6 +26,12 @@ compinit
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
+do
+	source $file
+done
+
+# load aliases last so they don't get overriden
+for file in ${(M)config_files:#*/aliases.zsh}
 do
 	source $file
 done
