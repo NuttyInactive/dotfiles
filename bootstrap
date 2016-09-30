@@ -109,4 +109,9 @@ echo -e ''
 install_dotfiles
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+installers=$(find . -name install.sh)
+for installer in $installers
+do
+	sh -c "${installer}"
+done
+
