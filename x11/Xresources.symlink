@@ -4,7 +4,7 @@ rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
 rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
 rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 rofi.separator-style: solid
-rofi.font: Iosevka 10
+rofi.font: Iosevka Term Bold 10
 rofi.width: 30
 rofi.lines: 10
 
@@ -28,7 +28,7 @@ rofi.lines: 10
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:Iosevka:style=Bold:pixelsize=14
+URxvt*font:                     xft:Iosevka Term:style=Bold:pixelsize=14
 URxvt.depth:                    32
 URxvt*lineSpace:                1
 URxvt.letterSpace:              0
