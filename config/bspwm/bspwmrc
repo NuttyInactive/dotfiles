@@ -1,6 +1,4 @@
-#! /bin/sh
-
-sxhkd &
+#!/usr/bin/env sh
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -11,7 +9,8 @@ bspc config gapless_monocle      true
 bspc config focus_by_distance    true
 bspc config history_aware_focus  true
 
-bspc monitor -d term web code etc
+bspc monitor -d term web code chat etc
 bspc config top_padding 28
 
+sxhkd &
 ~/.config/lemonbuddy/launch.sh
