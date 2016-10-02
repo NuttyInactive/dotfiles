@@ -28,7 +28,7 @@ rofi.lines: 10
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:Iosevka Term:style=Bold:pixelsize=14
+URxvt*font:                     xft:Iosevka Term:style=Bold:pixelsize=12
 URxvt.depth:                    32
 URxvt*lineSpace:                1
 URxvt.letterSpace:              0
