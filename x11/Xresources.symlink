@@ -1,8 +1,8 @@
 rofi.color-enabled: true
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+rofi.color-normal: #ffffff, #525d76, #f5f5f5, #5294e2, #ffffff
+rofi.color-urgent: #ffffff, #dc322f, #f5f5f5, #5294e2, #dc322f
+rofi.color-active: #ffffff, #c2cad0, #f5f5f5, #5294e2, #c2cad0
+rofi.color-window: #ffffff, #f5f5f5
 rofi.separator-style: solid
 rofi.font: Iosevka Term Bold 10
 rofi.width: 30
@@ -14,7 +14,7 @@ rofi.lines: 10
 ! | 2016                  |
 ! \-----------------------/
 
-#define bg    [97]#312e39
+#define bg    #312e39
 #define blk   #33303b
 #define fg    #c0a79a
 #define bblk  #4f4b58

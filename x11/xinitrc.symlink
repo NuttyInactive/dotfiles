@@ -12,6 +12,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 VBoxClient-all &
+feh --bg-scale ~/.wallpaper
 compton &
 sxhkd -f 100 &
 exec bspwm
