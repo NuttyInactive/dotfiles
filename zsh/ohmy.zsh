@@ -9,7 +9,7 @@ plugins=(git zsh-syntax-highlighting)  # Plugins to load in ~/.oh-my-zsh/plugins
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache   # Zsh cache directory
 if [[ ! -d $ZSH_CACHE_DIR ]]; then     # Create directory if not already created
-  mkdir $ZSH_CACHE_DIR
+	mkdir $ZSH_CACHE_DIR
 fi
 
 source $ZSH/oh-my-zsh.sh               # Initialize Oh My Zsh
