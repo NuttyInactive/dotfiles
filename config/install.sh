@@ -24,10 +24,15 @@ fail() {
 install_dotfiles() {
 	info "Installing bspwm and sxhkd dotfiles"
 
+	if [ -z ${XDG_CONFIG_HOME+x} ]
+	then
+		fail "\$XDG_CONFIG_HOME is not set -- try reloading ~/.zshrc."
+	fi
+
 	if type bspwm > /dev/null 2>&1 && \
 	   type sxhkd > /dev/null 2>&1 && \
 	   type lemonbar > /dev/null 2>&1 && \
-	   type lemonbuddy_wrapper > /dev/null 2>&1
+	   type lemonbuddy > /dev/null 2>&1
 	then
 		ls | grep -v 'zsh' | grep -v 'sh' | while read -r src
 		do

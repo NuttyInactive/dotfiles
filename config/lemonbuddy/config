@@ -1,9 +1,7 @@
 ;=====================================================
 ;
-;   To learn more about how to configure Lemonbuddy
-;   go to https://github.com/jaagr/lemonbuddy
-;
-;   The README contains alot of information
+; Author  : NuttyNeko (nutty@nuttyneko.com)
+; Website : https://github.com/NuttyNeko/dotfiles
 ;
 ;=====================================================
 
@@ -11,24 +9,36 @@
 ; Limit the amount of events sent to lemonbar within a set timeframe:
 ; - "Allow <throttle_limit> updates within <throttle_ms> of time"
 ; Default values:
-;throttle_limit = 5
-;throttle_ms = 50
+throttle_limit = 3
+throttle_ms = 60
 
-[bar/top]
+[bar/bottom]
+bottom = false
+dock = true
+width = 100%
+height = 30
+background = #dddddd
+foreground = #dddddd
+modules-left = empty
+
+font-0 = Iosevka:size=8:weight=normal;0
+font-1 = FontAwesome:size=10;0
+
+[module/empty]
+type = custom/text
+content = empty
+
+[bar/snowshoe]
 bottom = false
 dock = true
 width = 100%
 height = 28
-background = #cc312e39
-foreground = #e5cec2
+background = #ccffffff
+foreground = #555555
 spacing = 5
 lineheight = 1
-padding_left = 0
-padding_right = 0
-module_margin_left = 0
-module_margin_right = 0
 
-font-0 = Iosevka:size=8:weight=heavy;0
+font-0 = Iosevka:size=8:weight=normal;0
 font-1 = FontAwesome:size=10;0
 
 modules-left = bspwm
@@ -42,48 +52,43 @@ content = snowshoe
 [module/cpu]
 type = internal/cpu
 label = : %percentage%
-format-background = #cc312e39
+format-background = #ccffffff
 format-padding = 2
 
 [module/ram]
 type = internal/memory
 label = : %gb_used%
-format-background = #cc312e39
+format-background = #ccffffff
 format-padding = 2
 
 [module/clock]
 type = internal/date
 date = %m-%d-%Y %H:%M
-format-background = #cc312e39
+format-background = #ccffffff
 format-padding = 2
 
 [module/bspwm]
 type = internal/bspwm
 
-workspace_icon-0 = term;
-workspace_icon-1 = web;
-workspace_icon-2 = code;
-workspace_icon-3 = etc;
-workspace_icon-default = 
+ws-icon-0 = term;
+ws-icon-1 = web;
+ws-icon-2 = code;
+ws-icon-3 = etc;
+ws-icon-default = 
 
 label-active = %icon%
-label-active-underline = #f45476
-label-active-background = #512e39
+label-active-background = #aa6699ff
 
 label-active-padding = 2
 label-occupied-padding = 2
 label-empty-padding = 2
 
 label-occupied = %icon%
-label-occupied-underline = #8a4763
-label-occupied-background = #cc312e39
+label-occupied-background = #ccffffff
 
 label-urgent = %icon%
-label-urgent-underline = #e85b97
-label-urgent-background = #cc312e39
+label-urgent-background = #ccffffff
 
 label-empty = %icon%
-label-empty-background = #cc312e39
-
-; vim:ft=dosini
+label-empty-background = #ccffffff
 

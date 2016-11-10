@@ -10,7 +10,7 @@ bspc config focus_by_distance    true
 bspc config history_aware_focus  true
 
 bspc monitor -d term web code chat etc
-bspc config top_padding 28
+bspc config top_padding 30
 
 sxhkd &
 ~/.config/lemonbuddy/launch.sh

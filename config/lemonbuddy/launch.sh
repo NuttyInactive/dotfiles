@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-# Terminate already running bar instances
-lemonbuddy_terminate noconfirm
+# Terminate running instances
+killall -q -9 lemonbuddy
 
 # Launch lemon bar
-lemonbuddy_wrapper top &
+lemonbuddy snowshoe &
+lemonbuddy bottom &
 
